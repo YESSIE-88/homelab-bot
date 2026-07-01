@@ -31,3 +31,7 @@ This bot is designed to run on your homelab server. When you're away from home a
 2. **Copy the desktop file**
    ```bash
    cp homelab-bot.desktop ~/.config/autostart/homelab-bot.desktop
+
+3. **Make the scripts executable**
+   ```bash
+   chmod +x network-wait.sh start.sh
