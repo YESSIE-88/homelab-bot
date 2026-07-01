@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=HomelabBot
+Comment=Discord bot for homelab monitoring
+Exec=lxterminal --working-directory=/home/jessie/Desktop/homelab-bot -e "bash -c 'sleep 60 && /home/jessie/Desktop/homelab-bot/network-wait.sh && /home/jessie/Desktop/homelab-bot/start.sh; exec bash'"
+X-GNOME-Autostart-enabled=true
