@@ -28,10 +28,20 @@ This bot is designed to run on your homelab server. When you're away from home a
    git clone https://github.com/yourusername/homelab-bot.git
    cd homelab-bot
 
-2. **Copy the desktop file**
+2. **Make the script executable and run it**
+   ```bash
+   chmod +x install-bot.sh && ./install-bot.sh
+   
+3. **Copy the desktop file**
    ```bash
    cp homelab-bot.desktop ~/.config/autostart/homelab-bot.desktop
 
-3. **Make the scripts executable**
-   ```bash
-   chmod +x network-wait.sh start.sh
+## Running
+
+The script will run on boot in a terminal window. You can start it manually with:
+```bash
+python3 launch.py
+```
+Or to just run the bot you can run:
+```bash
+node index.js

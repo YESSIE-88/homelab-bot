@@ -27,7 +27,7 @@ client.on("messageCreate", async (message) => {
     }
 });
 
-// ✅ FIXED: Changed from 'ready' to 'clientReady'
+
 client.once("clientReady", () => {
     console.log(`Logged in as ${client.user.tag}`);
     console.log('Bot is ready and listening for "Ping" commands!');
