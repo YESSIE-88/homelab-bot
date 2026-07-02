@@ -45,3 +45,8 @@ python3 launch.py
 Or to just run the bot you can run:
 ```bash
 node index.js
+```
+
+## Note
+
+This is likely overkill as discord bots automatically come back up once the network returns
