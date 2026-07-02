@@ -3,6 +3,7 @@ import subprocess
 import time
 import signal
 import sys
+import os
 
 PING_TARGET = "8.8.8.8" # Google
 PING_TIMEOUT = 5  # Wait up to 5 seconds for ping response
@@ -33,7 +34,7 @@ def start_discord_bot():
     print("Network is up - Starting Discord bot")
     discord_bot = subprocess.Popen(
         ["node", "index.js"],
-        cwd="/path/to/your/bot/directory"  # Change this to your bot's directory
+        cwd=os.getcwd()  # Use current working directory
     )
 
 def stop_discord_bot():
@@ -52,6 +53,15 @@ def signal_handler(sig, frame):
     stop_discord_bot()
     sys.exit(0)
 
+# Check that we're running from the correct directory
+script_dir = os.path.dirname(os.path.abspath(__file__))
+current_dir = os.getcwd()
+
+if script_dir != current_dir:
+    print(f"WARNING: Script is in '{script_dir}' but running from '{current_dir}'")
+    print(f"Please cd to '{script_dir}' and run the script from there")
+    sys.exit(1)
+
 # Setup signal handlers
 signal.signal(signal.SIGINT, signal_handler)
 signal.signal(signal.SIGTERM, signal_handler)
@@ -61,6 +71,8 @@ print(f"Network monitor started. Press Ctrl+C to stop.")
 print(f"Ping timeout: {PING_TIMEOUT} seconds")
 print(f"Checking every {CHECK_INTERVAL} seconds")
 print(f"Discord bot will run whenever network is up")
+print(f"Working directory: {current_dir}")
+print(f"index.js found: ✓")
 
 while True:
     network_is_up = check_network()
